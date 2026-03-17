@@ -68,10 +68,10 @@ const MatrixChart: React.FC<MatrixChartProps> = ({ tasks, themes }) => {
                         <CartesianGrid strokeDasharray="4 4" stroke="#1e293b" opacity={0.3} vertical={true} horizontal={true} />
 
                         {/* Background de Cuadrantes */}
-                        <ReferenceArea x1={0} x2={5} y1={5} y2={10} fill={themes.thanklessTasks} fillOpacity={0.03} isFront={false} />
-                        <ReferenceArea x1={5} x2={10} y1={5} y2={10} fill={themes.majorProjects} fillOpacity={0.03} isFront={false} />
-                        <ReferenceArea x1={0} x2={5} y1={0} y2={5} fill={themes.fillIns} fillOpacity={0.03} isFront={false} />
-                        <ReferenceArea x1={5} x2={10} y1={0} y2={5} fill={themes.quickWins} fillOpacity={0.03} isFront={false} />
+                        <ReferenceArea x1={0} x2={5} y1={5} y2={10} fill={themes.thanklessTasks} fillOpacity={0.03}  />
+                        <ReferenceArea x1={5} x2={10} y1={5} y2={10} fill={themes.majorProjects} fillOpacity={0.03}  />
+                        <ReferenceArea x1={0} x2={5} y1={0} y2={5} fill={themes.fillIns} fillOpacity={0.03} />
+                        <ReferenceArea x1={5} x2={10} y1={0} y2={5} fill={themes.quickWins} fillOpacity={0.03}  />
 
                         {/* Etiquetas de Cuadrantes */}
                         <ReferenceArea x1={2.5} x2={2.5} y1={7.5} y2={7.5} stroke="none" fill="none">
