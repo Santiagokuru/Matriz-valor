@@ -61,32 +61,32 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, onCancel }) 
     return (
         <form
             onSubmit={handleSubmit}
-            className="space-y-6 bg-slate-900/40 p-6 rounded-[1.5rem] border border-slate-700/50 shadow-2xl relative overflow-hidden group transition-all duration-500 hover:border-slate-600/50 ring-1 ring-slate-800"
+            className="space-y-6 bg-white p-6 rounded-[1.5rem] border border-[#E2DDD5] shadow-sm relative overflow-hidden group transition-all duration-300 hover:border-[#C8C2B7]"
         >
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <div className="absolute top-0 right-0 p-4 opacity-5 text-[#7A6E5D] group-hover:opacity-10 transition-opacity">
                 <Target size={100} />
             </div>
 
             <div className="space-y-2 relative pt-2">
-                <label htmlFor="name" className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Título / Identificador</label>
+                <label htmlFor="name" className="text-[12px] font-bold text-[#7C756B] uppercase tracking-widest ml-1">Título / Identificador</label>
                 <input
                     id="name"
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Ej: Lanzar nueva funcionalidad..."
-                    className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500/50 transition-all placeholder:text-slate-700 font-medium"
+                    className="w-full bg-[#FAF9F6] border border-[#E2DDD5] rounded-xl px-4 py-3.5 text-[#2A2926] focus:outline-none focus:ring-2 focus:ring-[#7A6E5D]/20 focus:border-[#7A6E5D] transition-all placeholder:text-[#A39A8E] font-medium text-base"
                     required
                 />
             </div>
 
             <div className="grid grid-cols-1 gap-6">
                 {/* Eje X: Valor / Impacto */}
-                <div className="space-y-4 bg-slate-950/30 p-4 rounded-2xl border border-slate-800/50">
+                <div className="space-y-4 bg-[#FAF9F6]/50 p-4 rounded-2xl border border-[#E2DDD5]/60">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center gap-2">
-                            <Zap size={14} className="text-indigo-400" />
-                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">VALOR / IMPACTO (X)</label>
+                            <Zap size={16} className="text-[#7A6E5D]" />
+                            <label className="text-[12px] font-bold text-[#7C756B] uppercase tracking-widest">VALOR / IMPACTO (X)</label>
                         </div>
                         <input
                             type="number"
@@ -95,7 +95,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, onCancel }) 
                             step="0.1"
                             value={x}
                             onChange={(e) => handleXChange(e.target.value)}
-                            className="bg-indigo-500/10 text-indigo-400 font-black text-xs w-14 py-1 text-center rounded-lg border border-indigo-500/20 focus:outline-none focus:ring-1 focus:ring-indigo-500/50"
+                            className="bg-white text-[#7A6E5D] font-bold text-sm w-16 py-1.5 text-center rounded-lg border border-[#E2DDD5] focus:outline-none focus:ring-1 focus:ring-[#7A6E5D]"
                         />
                     </div>
                     <input
@@ -105,20 +105,20 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, onCancel }) 
                         step="0.1"
                         value={x}
                         onChange={(e) => setX(parseFloat(e.target.value))}
-                        className="w-full accent-indigo-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg appearance-none hover:accent-indigo-400 transition-all"
+                        className="w-full accent-[#7A6E5D] cursor-pointer h-1.5 bg-[#E2DDD5] rounded-lg appearance-none transition-all"
                     />
-                    <div className="flex justify-between px-1 text-[8px] font-black text-slate-600 uppercase">
+                    <div className="flex justify-between px-1 text-[10px] font-bold text-[#A39A8E] uppercase tracking-wider">
                         <span>Mínimo</span>
                         <span>Máximo</span>
                     </div>
                 </div>
 
                 {/* Eje Y: Esfuerzo / Coste */}
-                <div className="space-y-4 bg-slate-950/30 p-4 rounded-2xl border border-slate-800/50">
+                <div className="space-y-4 bg-[#FAF9F6]/50 p-4 rounded-2xl border border-[#E2DDD5]/60">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
-                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">ESFUERZO / COSTE (Y)</label>
+                            <span className="w-2 h-2 rounded-full bg-[#B57C63]"></span>
+                            <label className="text-[12px] font-bold text-[#7C756B] uppercase tracking-widest">ESFUERZO / COSTE (Y)</label>
                         </div>
                         <input
                             type="number"
@@ -127,7 +127,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, onCancel }) 
                             step="0.1"
                             value={y}
                             onChange={(e) => handleYChange(e.target.value)}
-                            className="bg-rose-500/10 text-rose-400 font-black text-xs w-14 py-1 text-center rounded-lg border border-rose-500/20 focus:outline-none focus:ring-1 focus:ring-rose-500/50"
+                            className="bg-white text-[#B57C63] font-bold text-sm w-16 py-1.5 text-center rounded-lg border border-[#E2DDD5] focus:outline-none focus:ring-1 focus:ring-[#B57C63]"
                         />
                     </div>
                     <input
@@ -137,31 +137,31 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, onCancel }) 
                         step="0.1"
                         value={y}
                         onChange={(e) => setY(parseFloat(e.target.value))}
-                        className="w-full accent-rose-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg appearance-none hover:accent-rose-400 transition-all"
+                        className="w-full accent-[#B57C63] cursor-pointer h-1.5 bg-[#E2DDD5] rounded-lg appearance-none transition-all"
                     />
-                    <div className="flex justify-between px-1 text-[8px] font-black text-slate-600 uppercase">
+                    <div className="flex justify-between px-1 text-[10px] font-bold text-[#A39A8E] uppercase tracking-wider">
                         <span>Fácil</span>
                         <span>Difícil</span>
                     </div>
                 </div>
 
                 {/* Color de la Tarea */}
-                <div className="bg-slate-950/30 p-4 rounded-2xl border border-slate-800/50 flex items-center justify-between">
+                <div className="bg-[#FAF9F6]/50 p-4 rounded-2xl border border-[#E2DDD5]/60 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <Palette size={14} className="text-slate-400" />
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">COLOR DE TAREA</label>
+                        <Palette size={16} className="text-[#7C756B]" />
+                        <label className="text-[12px] font-bold text-[#7C756B] uppercase tracking-widest">COLOR DE TAREA</label>
                     </div>
                     <div className="flex items-center gap-3">
                         <input
                             type="color"
-                            value={color || "#6366f1"}
+                            value={color || "#7A6E5D"}
                             onChange={(e) => setColor(e.target.value)}
-                            className="w-8 h-8 rounded-lg bg-transparent border-none cursor-pointer p-0.5 border border-slate-700"
+                            className="w-9 h-9 rounded-lg bg-transparent border-none cursor-pointer p-0.5 border border-[#E2DDD5]"
                         />
                         <button
                             type="button"
                             onClick={() => setColor("")}
-                            className="text-[9px] font-black text-slate-500 hover:text-slate-300 uppercase underline"
+                            className="text-[11px] font-bold text-[#7C756B] hover:text-[#2A2926] uppercase underline decoration-dotted"
                         >
                             Resetear
                         </button>
@@ -172,7 +172,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, onCancel }) 
             <div className="flex gap-3 pt-2">
                 <button
                     type="submit"
-                    className="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-3 shadow-xl shadow-indigo-600/10 active:scale-[0.98]"
+                    className="flex-1 bg-[#7A6E5D] hover:bg-[#685D4E] text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-3 shadow-md shadow-[#7A6E5D]/10 active:scale-[0.98] text-base uppercase tracking-wider"
                 >
                     {initialData ? (
                         <>
@@ -190,7 +190,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, onCancel }) 
                     <button
                         type="button"
                         onClick={onCancel}
-                        className="px-4 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-xl transition-all active:scale-[0.98] border border-slate-700/50"
+                        className="px-4 bg-[#F4F1EA] hover:bg-[#EAE6DF] border border-[#E2DDD5] text-[#7C756B] hover:text-[#2A2926] rounded-xl transition-all active:scale-[0.98]"
                     >
                         <X size={20} />
                     </button>
