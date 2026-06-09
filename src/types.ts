@@ -14,8 +14,8 @@ export interface QuadrantThemes {
 }
 
 export const DEFAULT_THEMES: QuadrantThemes = {
-    quickWins: "#10b981", // Emerald 500 (Verde)
-    majorProjects: "#f59e0b", // Amber 500 (Opciones de color mejoradas)
-    fillIns: "#3b82f6", // Blue 500
-    thanklessTasks: "#ef4444", // Red 500
+    quickWins: "#6B7F67", // Sage Green
+    majorProjects: "#B57C63", // Terracotta
+    fillIns: "#5A7A8C", // Dusty Blue
+    thanklessTasks: "#A25E5E", // Muted Rose
 };
