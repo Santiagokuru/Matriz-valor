@@ -23,22 +23,22 @@ const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
         const data = payload[0].payload;
         return (
-            <div className="bg-slate-900 border border-slate-700/50 p-4 rounded-2xl shadow-2xl backdrop-blur-xl ring-1 ring-white/10">
-                <div className="flex items-center gap-2 mb-3 border-b border-slate-800 pb-2">
+            <div className="bg-white border border-[#E2DDD5] p-4 rounded-2xl shadow-lg backdrop-blur-md">
+                <div className="flex items-center gap-2 mb-3 border-b border-[#E2DDD5]/60 pb-2">
                     <div
-                        className="w-2 h-2 rounded-full animate-pulse"
-                        style={{ backgroundColor: data.color || '#6366f1' }}
+                        className="w-2.5 h-2.5 rounded-full"
+                        style={{ backgroundColor: data.color || '#7A6E5D' }}
                     ></div>
-                    <p className="text-white font-black text-xs uppercase tracking-widest">{data.name}</p>
+                    <p className="text-[#2A2926] font-bold text-xs uppercase tracking-wider">{data.name}</p>
                 </div>
                 <div className="space-y-2">
                     <div className="flex justify-between items-center gap-8">
-                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-tighter">Valor de Impacto</span>
-                        <span className="text-indigo-400 font-black text-sm">{data.x}</span>
+                        <span className="text-[9px] font-bold text-[#7C756B] uppercase tracking-wider">Valor de Impacto</span>
+                        <span className="text-[#7A6E5D] font-black text-sm">{data.x}</span>
                     </div>
                     <div className="flex justify-between items-center gap-8">
-                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-tighter">Esfuerzo Requerido</span>
-                        <span className="text-rose-400 font-black text-sm">{data.y}</span>
+                        <span className="text-[9px] font-bold text-[#7C756B] uppercase tracking-wider">Esfuerzo Requerido</span>
+                        <span className="text-[#B57C63] font-black text-sm">{data.y}</span>
                     </div>
                 </div>
             </div>
@@ -51,40 +51,40 @@ const RenderDot = (props: any) => {
     const { cx, cy, fill } = props;
     return (
         <g>
-            <circle cx={cx} cy={cy} r={12} fill={fill} fillOpacity={0.15} />
-            <circle cx={cx} cy={cy} r={6} fill={fill} stroke="white" strokeWidth={1.5} style={{ filter: `drop-shadow(0 0 8px ${fill})` }} />
+            <circle cx={cx} cy={cy} r={20} fill={fill} fillOpacity={0.12} />
+            <circle cx={cx} cy={cy} r={10} fill={fill} stroke="#ffffff" strokeWidth={2} />
         </g>
     );
 };
 
 const MatrixChart: React.FC<MatrixChartProps> = ({ tasks, themes }) => {
     return (
-        <div className="w-full h-full flex flex-col pt-4 pr-4">
-            <div className="flex-1 w-full h-full">
+        <div className="w-full h-full flex items-center justify-center p-6">
+            <div className="w-[90%] h-[90%]">
                 <ResponsiveContainer width="100%" height="100%">
                     <ScatterChart
-                        margin={{ top: 20, right: 20, bottom: 60, left: 20 }}
+                        margin={{ top: 20, right: 20, bottom: 75, left: 35 }}
                     >
-                        <CartesianGrid strokeDasharray="4 4" stroke="#1e293b" opacity={0.3} vertical={true} horizontal={true} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#E2DDD5" opacity={0.6} vertical={true} horizontal={true} />
 
                         {/* Background de Cuadrantes */}
-                        <ReferenceArea x1={0} x2={5} y1={5} y2={10} fill={themes.thanklessTasks} fillOpacity={0.03}  />
-                        <ReferenceArea x1={5} x2={10} y1={5} y2={10} fill={themes.majorProjects} fillOpacity={0.03}  />
-                        <ReferenceArea x1={0} x2={5} y1={0} y2={5} fill={themes.fillIns} fillOpacity={0.03} />
-                        <ReferenceArea x1={5} x2={10} y1={0} y2={5} fill={themes.quickWins} fillOpacity={0.03}  />
+                        <ReferenceArea x1={0} x2={5} y1={5} y2={10} fill={themes.thanklessTasks} fillOpacity={0.06}  />
+                        <ReferenceArea x1={5} x2={10} y1={5} y2={10} fill={themes.majorProjects} fillOpacity={0.06}  />
+                        <ReferenceArea x1={0} x2={5} y1={0} y2={5} fill={themes.fillIns} fillOpacity={0.06} />
+                        <ReferenceArea x1={5} x2={10} y1={0} y2={5} fill={themes.quickWins} fillOpacity={0.06}  />
 
                         {/* Etiquetas de Cuadrantes */}
                         <ReferenceArea x1={2.5} x2={2.5} y1={7.5} y2={7.5} stroke="none" fill="none">
-                            <Label value="TAREAS INGRATAS" position="center" fill="#64748b" style={{ fontSize: '10px', fontWeight: 900, opacity: 0.3, letterSpacing: '0.2em' }} />
+                            <Label value="TAREAS INGRATAS" position="center" fill="#7C756B" style={{ fontSize: '15px', fontWeight: 700, opacity: 0.6, letterSpacing: '0.15em' }} />
                         </ReferenceArea>
                         <ReferenceArea x1={7.5} x2={7.5} y1={7.5} y2={7.5} stroke="none" fill="none">
-                            <Label value="PROYECTOS ESTRATÉGICOS" position="center" fill="#64748b" style={{ fontSize: '10px', fontWeight: 900, opacity: 0.3, letterSpacing: '0.2em' }} />
+                            <Label value="PROYECTOS ESTRATÉGICOS" position="center" fill="#7C756B" style={{ fontSize: '15px', fontWeight: 700, opacity: 0.6, letterSpacing: '0.15em' }} />
                         </ReferenceArea>
                         <ReferenceArea x1={2.5} x2={2.5} y1={2.5} y2={2.5} stroke="none" fill="none">
-                            <Label value="RELLENO" position="center" fill="#64748b" style={{ fontSize: '10px', fontWeight: 900, opacity: 0.3, letterSpacing: '0.2em' }} />
+                            <Label value="RELLENO" position="center" fill="#7C756B" style={{ fontSize: '15px', fontWeight: 700, opacity: 0.6, letterSpacing: '0.15em' }} />
                         </ReferenceArea>
                         <ReferenceArea x1={7.5} x2={7.5} y1={2.5} y2={2.5} stroke="none" fill="none">
-                            <Label value="ÉXITOS RÁPIDOS" position="center" fill="#64748b" style={{ fontSize: '10px', fontWeight: 900, opacity: 0.3, letterSpacing: '0.2em' }} />
+                            <Label value="ÉXITOS RÁPIDOS" position="center" fill="#7C756B" style={{ fontSize: '15px', fontWeight: 700, opacity: 0.6, letterSpacing: '0.15em' }} />
                         </ReferenceArea>
 
                         <XAxis
@@ -93,12 +93,12 @@ const MatrixChart: React.FC<MatrixChartProps> = ({ tasks, themes }) => {
                             name="Valor"
                             domain={[0, 10]}
                             tickCount={11}
-                            stroke="#475569"
-                            fontSize={10}
-                            tick={{ fontWeight: 600 }}
-                            axisLine={{ stroke: '#334155', strokeWidth: 1 }}
+                            stroke="#7C756B"
+                            fontSize={12}
+                            tick={{ fontWeight: 500, fill: '#7C756B' }}
+                            axisLine={{ stroke: '#E2DDD5', strokeWidth: 1 }}
                         >
-                            <Label value="VALOR ESTRATÉGICO / IMPACTO" offset={-40} position="insideBottom" fill="#94a3b8" style={{ fontWeight: 900, fontSize: 9, letterSpacing: '0.3em' }} />
+                            <Label value="VALOR ESTRATÉGICO / IMPACTO" offset={-55} position="insideBottom" fill="#7C756B" style={{ fontWeight: 700, fontSize: 15, letterSpacing: '0.2em' }} />
                         </XAxis>
 
                         <YAxis
@@ -107,16 +107,16 @@ const MatrixChart: React.FC<MatrixChartProps> = ({ tasks, themes }) => {
                             name="Esfuerzo"
                             domain={[0, 10]}
                             tickCount={11}
-                            stroke="#475569"
-                            fontSize={10}
-                            tick={{ fontWeight: 600 }}
-                            axisLine={{ stroke: '#334155', strokeWidth: 1 }}
+                            stroke="#7C756B"
+                            fontSize={12}
+                            tick={{ fontWeight: 500, fill: '#7C756B' }}
+                            axisLine={{ stroke: '#E2DDD5', strokeWidth: 1 }}
                         >
-                            <Label value="ESFUERZO DE EJECUCIÓN" angle={-90} position="insideLeft" offset={0} fill="#94a3b8" style={{ fontWeight: 900, fontSize: 9, letterSpacing: '0.3em' }} />
+                            <Label value="ESFUERZO DE EJECUCIÓN" angle={-90} position="insideLeft" offset={-20} fill="#7C756B" style={{ fontWeight: 700, fontSize: 15, letterSpacing: '0.2em' }} />
                         </YAxis>
                         <ZAxis type="number" range={[100, 100]} />
 
-                        <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '5 5', stroke: '#334155', strokeWidth: 1 }} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '4 4', stroke: '#C8C2B7', strokeWidth: 1 }} />
 
                         <Scatter
                             name="Tareas"
