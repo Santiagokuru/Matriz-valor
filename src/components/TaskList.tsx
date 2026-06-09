@@ -11,10 +11,10 @@ interface TaskListProps {
 const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
     if (tasks.length === 0) {
         return (
-            <div className="flex flex-col items-center justify-center py-16 px-6 border-2 border-dashed border-slate-800/50 rounded-[2rem] text-slate-600 bg-slate-900/10">
-                <Box size={40} className="mb-4 opacity-10" />
-                <p className="text-sm font-bold uppercase tracking-widest text-slate-700">Base de Datos Vacía</p>
-                <p className="text-[10px] mt-2 text-slate-700 font-medium">Asigna tus primeras tareas estratégicas</p>
+            <div className="flex flex-col items-center justify-center py-16 px-6 border border-dashed border-[#E2DDD5] rounded-[2rem] text-[#7C756B] bg-[#FAF9F6]">
+                <Box size={32} className="mb-3 opacity-30 text-[#7C756B]" />
+                <p className="text-xs font-bold uppercase tracking-wider text-[#7C756B]">Base de Datos Vacía</p>
+                <p className="text-[9px] mt-1 text-[#A39A8E] font-medium">Asigna tus primeras tareas estratégicas</p>
             </div>
         );
     }
@@ -24,50 +24,50 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
             {tasks.map((task) => (
                 <div
                     key={task.id}
-                    className="group relative bg-slate-950/20 hover:bg-slate-900/40 border border-slate-800/40 hover:border-slate-700/60 p-5 rounded-[1.25rem] transition-all duration-300 flex justify-between items-center overflow-hidden"
+                    className="group relative bg-white hover:bg-[#FAF9F6]/40 border border-[#E2DDD5] hover:border-[#C8C2B7] p-5 rounded-[1.25rem] transition-all duration-300 flex justify-between items-center overflow-hidden shadow-sm"
                 >
-                    {/* Subtle Accent Glow based on task color or indigo */}
+                    {/* Subtle Accent Line based on task color or default taupe */}
                     <div
                         className="absolute left-0 top-0 bottom-0 w-1 transition-opacity opacity-0 group-hover:opacity-100"
                         style={{
-                            background: `linear-gradient(to b, ${task.color || '#6366f1'}00, ${task.color || '#6366f1'}66, ${task.color || '#6366f1'}00)`
+                            backgroundColor: task.color || '#7A6E5D'
                         }}
                     ></div>
 
                     <div className="min-w-0 flex-1 px-1">
                         <div className="flex items-center gap-2 mb-2">
                             <span
-                                className="w-2 h-2 rounded-full transition-shadow group-hover:shadow-[0_0_8px_rgba(255,255,255,0.4)]"
-                                style={{ backgroundColor: task.color || '#6366f1' }}
+                                className="w-2 h-2 rounded-full transition-shadow"
+                                style={{ backgroundColor: task.color || '#7A6E5D' }}
                             ></span>
-                            <h3 className="font-bold text-slate-200 truncate tracking-tight uppercase text-sm">{task.name}</h3>
+                            <h3 className="font-bold text-[#2A2926] truncate tracking-tight uppercase text-sm">{task.name}</h3>
                         </div>
                         <div className="flex gap-4">
                             <div className="flex flex-col">
-                                <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Impacto</span>
-                                <span className="text-xs font-black text-indigo-400">{task.x}</span>
+                                <span className="text-[10px] font-bold text-[#A39A8E] uppercase tracking-wider">Impacto</span>
+                                <span className="text-sm font-bold text-[#7A6E5D]">{task.x}</span>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Esfuerzo</span>
-                                <span className="text-xs font-black text-rose-400">{task.y}</span>
+                                <span className="text-[10px] font-bold text-[#A39A8E] uppercase tracking-wider">Esfuerzo</span>
+                                <span className="text-sm font-bold text-[#B57C63]">{task.y}</span>
                             </div>
                             <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
-                                <ChevronRight size={14} className="text-slate-600" />
+                                <ChevronRight size={14} className="text-[#A39A8E]" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex gap-2 ml-4 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 duration-300">
+                    <div className="flex gap-2 ml-4 opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0 duration-300">
                         <button
                             onClick={() => onEdit(task)}
-                            className="p-2.5 bg-slate-800/50 text-slate-400 hover:text-white hover:bg-indigo-600/20 rounded-xl transition-all border border-slate-700/30"
+                            className="p-2.5 bg-[#FAF9F6] text-[#7C756B] hover:text-[#7A6E5D] hover:bg-[#7A6E5D]/10 rounded-xl transition-all border border-[#E2DDD5]"
                             title="Editar Tarea"
                         >
                             <Edit3 size={16} />
                         </button>
                         <button
                             onClick={() => onDelete(task.id)}
-                            className="p-2.5 bg-slate-800/50 text-slate-400 hover:text-rose-400 hover:bg-rose-600/20 rounded-xl transition-all border border-slate-700/30"
+                            className="p-2.5 bg-[#FAF9F6] text-[#7C756B] hover:text-[#A25E5E] hover:bg-[#A25E5E]/10 rounded-xl transition-all border border-[#E2DDD5]"
                             title="Eliminar Tarea"
                         >
                             <Trash2 size={16} />

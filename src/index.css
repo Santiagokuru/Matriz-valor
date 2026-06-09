@@ -5,9 +5,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #020617;
+  color-scheme: light;
+  color: #2A2926;
+  background-color: #FAF9F6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,7 +20,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #020617;
+  background-color: #FAF9F6;
 }
 
 #root {
@@ -36,12 +36,12 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #E2DDD5;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #C8C2B7;
 }
 
 /* Custom Animations */
